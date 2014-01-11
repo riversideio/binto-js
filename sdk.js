@@ -74,6 +74,9 @@ define('io', ['jquery', 'handlebars'], function ( $, Handlebars ) {
 		users : {
 			login : _setCall('sessions.json'),
 			create : _setCall('users.json'),
+      all : _setCall('users.json', {
+        method : 'get'
+      }),
 			read : _setCall('users.json', { 
 				method : 'get' 
 			}),
@@ -99,8 +102,10 @@ define('io', ['jquery', 'handlebars'], function ( $, Handlebars ) {
         		endpointVars : true
       		})
 		},
-		location : {
-			plans : _setCall('location/plans.json')
+		plans : {
+			all : _setCall('plans.json', {
+        method : 'get'
+      })
 		}
 
 	}
