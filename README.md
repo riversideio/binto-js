@@ -4,23 +4,31 @@ This is a simple wrapper for Riverside.io's Api [victoria club](https://github.c
 
 ### Requirements
 
-Right now at its current state there are three requirements: `jQuery, Handlebars, and requireJS` please install all three and setup this in your `main` script.
+Right now at its current state there is one requirement: `jQuery`. It is also compatiable with amd modules.
 
 ```javascript
+// to import using requirejs
 require.config({
     paths: {
     	jquery : '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min',
-        handlebars : 'path/to/handlebars',
         io : 'path/to/sdk'
     }
 });
 ```
 
-Then to use the sdk in a script do
+### To Use
 
 ```javascript
+io.users.all( function( err, res) {
+	console.log( arguments );	
+})
+
+// or using requirejs
+
 require(['io'], function ( io ) {
-	// yeah you can use io
+	io.users.all( function( err, res) {
+		console.log( arguments );	
+	})
 })
 ```
 
@@ -144,4 +152,6 @@ io.users.resetPassword({
 	console.log('reset requested', res );
 })
 ```
+
+more documentation can be found at [riversideio/victoria-club](https://github.com/riversideio/victoria-club)
 
