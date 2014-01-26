@@ -93,9 +93,9 @@
             users : {
                 login : _setCall('sessions.json'),
                 create : _setCall('users.json'),
-            all : _setCall('users.json', {
-              method : 'get'
-            }),
+                all : _setCall('users.json', {
+                  method : 'get'
+                }),
                 read : _setCall('users.json', { 
                     method : 'get' 
                 }),
@@ -125,6 +125,12 @@
                 all : _setCall('plans.json', {
                     method : 'get'
                 })
+            },
+            checkins : {
+                all : _setCall('checkins.json', {
+                    method : 'get'
+                }),
+                create : _setCall('checkins.json')
             }
 
         }
