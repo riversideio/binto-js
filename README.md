@@ -18,6 +18,13 @@ require.config({
 
 ### To Use
 
+first you will need to call `io.setUrl` to point towards a database if you dont there will be a warning everytime you make a call or try to.
+
+```javascript
+io.setUrl('http://localhost:3000');
+```
+then you can use all the other methods
+
 ```javascript
 io.users.all( function( err, res) {
 	console.log( arguments );	
@@ -39,6 +46,10 @@ Right now the api is very focus on users but hopefully in the near future we wil
 #### io
 
 The main object that holds the `classes` of the api.
+
+##### io.setUrl(<api_url>)
+
+this is a function that allows you to set what api endpoint you want to run the sdk against. eg. `http://localhost:3000/api/v0/`
 
 ##### io.users
 
