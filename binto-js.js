@@ -1,6 +1,6 @@
 (function ( exports ) {
 
-    function ioSdk( $ ) {
+    function bintoSdk( $ ) {
 
         var user,
             processing,
@@ -34,7 +34,7 @@
 
             if ( !apiUrl ){
                 return console.warn('Please specifiy a url for the api to use.' + 
-                    ' USE : io.setUrl(<api_url>)');
+                    ' USE : binto.setUrl(<api_url>)');
             }
 
             return $.ajax({
@@ -146,9 +146,9 @@
 
     }
     if ( typeof define === 'function' ) {
-        return define( 'io', ['jquery'], ioSdk )
+        return define( 'binto', ['jquery'], bintoSdk )
     }
     // globals
-    exports.io = ioSdk( jQuery );
+    exports.binto = bintoSdk( jQuery );
 
 }( this ))
