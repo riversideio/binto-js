@@ -13,29 +13,29 @@ Right now at its current state there is one requirement: `jQuery`. It is also co
 require.config({
     paths: {
     	jquery : '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min',
-        io : 'path/to/binto-js.js'
+        binto : 'path/to/binto-js.js'
     }
 });
 ```
 
 ### To Use
 
-first you will need to call `io.setUrl` to point towards a database if you dont there will be a warning everytime you make a call or try to.
+first you will need to call `binto.setUrl` to point towards a database if you dont there will be a warning everytime you make a call or try to.
 
 ```javascript
-io.setUrl('http://localhost:3000');
+binto.setUrl('http://localhost:3000');
 ```
 then you can use all the other methods
 
 ```javascript
-io.users.all( function( err, res) {
+binto.users.all( function( err, res) {
 	console.log( arguments );	
 })
 
 // or using requirejs
 
-require(['io'], function ( io ) {
-	io.users.all( function( err, res) {
+require(['binto'], function ( binto ) {
+	binto.users.all( function( err, res) {
 		console.log( arguments );	
 	})
 })
@@ -45,15 +45,15 @@ require(['io'], function ( io ) {
 
 Right now the api is very focus on users but hopefully in the near future we will be expanding it to more then just users.
 
-#### io
+#### binto
 
 The main object that holds the `classes` of the api.
 
-##### io.setUrl(<api_url>)
+##### binto.setUrl(<api_url>)
 
 this is a function that allows you to set what api endpoint you want to run the sdk against. eg. `http://localhost:3000/api/v0/`
 
-##### io.users
+##### binto.users
 
 Currently the only class in the api. Harbors many endpoints.
 
@@ -62,7 +62,7 @@ Currently the only class in the api. Harbors many endpoints.
 Create a user, takes two params: `email, password`. The api responds with a error or success. If response is successful api will return `user` key with the users `session_token`. The sdk will hold onto the users `session_token` and use it with any new calls made.
 
 ```javascript
-io.users.create({
+binto.users.create({
 	email : 'test@example.com',
 	password : '123456'
 }, function ( err, res ) {
@@ -76,7 +76,7 @@ io.users.create({
 Very similair to user create, takes two params: `email, password`. The api responds with a error or success. If response is successful api will return `user` key with the users `session_token`. The sdk will hold onto the users `session_token` and use it with any new calls made.
 
 ```javascript
-io.users.login({
+binto.users.login({
 	email : 'test@example.com',
 	password : '123456'
 }, function ( err, res ) {
@@ -90,7 +90,7 @@ io.users.login({
 Gets a list of all current memebers that have signed up through system.
 
 ```javascript
-io.users.get(function ( err, res ) {
+binto.users.get(function ( err, res ) {
 	if ( err ) console.warn( err );
 	console.log('list of users', res.users );
 })
@@ -101,7 +101,7 @@ io.users.get(function ( err, res ) {
 Update a users profile data, one parameter is required: `id`. The api responds with a error or success. Requires user to have `session_token` before usage.
 
 ```javascript
-io.users.update({
+binto.users.update({
 	id : '123',
 	name : 'Bob Hope'
 }, function ( err, res ) {
@@ -115,7 +115,7 @@ io.users.update({
 Shows a users profile data, one parameter is required: `id`. The api responds with a error or success.
 
 ```javascript
-io.users.show({
+binto.users.show({
 	id : '123',
 }, function ( err, res ) {
 	if ( err ) console.warn( err );
@@ -128,7 +128,7 @@ io.users.show({
 Update a users card information, five parameters are required: `id, card_number, card_cvc, card_exp_month, card_exp_year`. The api responds with a error or success. Requires user to have `session_token` before usage.
 
 ```javascript
-io.users.updateCard({
+binto.users.updateCard({
 	id : '123',
 	card_number : '4242424242424242',
 	card_cvc : '123',
@@ -145,7 +145,7 @@ io.users.updateCard({
 Checkin user, one parameters is required: `id`. The api responds with a error or success.
 
 ```javascript
-io.users.checkin({
+binto.users.checkin({
 	id : '123'
 }, function ( err, res ) {
 	if ( err ) console.warn( err );
@@ -158,7 +158,7 @@ io.users.checkin({
 Send an email to reset password, one parameters is required: `email`. The api responds with a error or success.
 
 ```javascript
-io.users.resetPassword({
+binto.users.resetPassword({
 	email : 'bob@example.com'
 }, function ( err, res ) {
 	if ( err ) console.warn( err );
