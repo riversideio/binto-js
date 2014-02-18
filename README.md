@@ -1,6 +1,6 @@
-## Riverside.io SDK
+## binto-js
 
-This is a simple wrapper for Riverside.io's Api [victoria club](https://github.com/riversideio/victoria-club), so the api is alot easier to interface with in frontend applications.
+This is a simple wrapper for the [binto-api](https://github.com/riversideio/binto-api), so the api is alot easier to interface with in frontend applications.
 
 ### Requirements
 
@@ -11,7 +11,7 @@ Right now at its current state there is one requirement: `jQuery`. It is also co
 require.config({
     paths: {
     	jquery : '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min',
-        io : 'path/to/sdk'
+        io : 'path/to/binto-js.js'
     }
 });
 ```
@@ -164,5 +164,5 @@ io.users.resetPassword({
 })
 ```
 
-more documentation can be found at [riversideio/victoria-club](https://github.com/riversideio/victoria-club)
+more documentation can be found at [riversideio/binto-api](https://github.com/riversideio/binto-api)
 
