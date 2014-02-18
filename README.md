@@ -1,5 +1,7 @@
 ## binto-js
 
+![](https://raw2.github.com/riversideio/binto-api/master/binto.jpg)
+
 This is a simple wrapper for the [binto-api](https://github.com/riversideio/binto-api), so the api is alot easier to interface with in frontend applications.
 
 ### Requirements
