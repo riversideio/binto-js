@@ -138,8 +138,17 @@
                 }),
                 create : _setCall('checkins.json')
             },
+            events : {
+                all : _setCall('events.json', {
+                    method : 'get'
+                }),
+                create : _setCall('events.json')
+            },
             setUrl : function ( url ) {
                 apiUrl = url;
+            },
+            setUser : function ( _user ) {
+                user = _user;
             }
 
         }
